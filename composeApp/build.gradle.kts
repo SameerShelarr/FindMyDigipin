@@ -97,7 +97,7 @@ android {
         }
 
         getByName("release") {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             val googleMapsApiKey = localProperties.getProperty("GOOGLE_MAP_API_KEY") ?: ""
             resValue("string", "google_maps_key", googleMapsApiKey)
         }
