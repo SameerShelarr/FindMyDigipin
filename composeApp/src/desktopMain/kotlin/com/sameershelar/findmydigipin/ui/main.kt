@@ -6,7 +6,7 @@ import androidx.compose.ui.window.application
 fun main() = application {
     Window(
         onCloseRequest = ::exitApplication,
-        title = "Find My DigiPin",
+        title = "Find My Digipin",
     ) {
         App()
     }
