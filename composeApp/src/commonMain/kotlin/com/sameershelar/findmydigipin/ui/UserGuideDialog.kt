@@ -17,10 +17,10 @@ fun UserGuideDialog(
             title = { Text(text = "User Guide") },
             text = {
                 Text(
-                    text = "1. Long click on map to get DigiPin of that location.\n\n" +
+                    text = "1. Long click on map to get Digipin of that location.\n\n" +
                             "2. Click search button to expand search options.\n\n" +
-                            "3. Enter lat long or DigiPin then click search again.\n\n" +
-                            "4. Share or copy DigiPin for easy access.\n\n" +
+                            "3. Enter lat long or Digipin then click search again.\n\n" +
+                            "4. Share or copy Digipin for easy access.\n\n" +
                             "5. Access this guide from \"?\" icon.\n\n"
                 )
             },

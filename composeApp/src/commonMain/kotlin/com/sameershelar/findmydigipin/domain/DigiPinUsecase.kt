@@ -5,14 +5,14 @@ package com.sameershelar.findmydigipin.domain
 object DigiPinUsecase {
 
     /**
-     * Generates a DigiPin based on latitude and longitude.
-     * The DigiPin is a 10-character string that represents a specific location.
+     * Generates a Digipin based on latitude and longitude.
+     * The Digipin is a 10-character string that represents a specific location.
      * The first character is always a letter, and the rest can be letters or numbers.
      * The format is: LLLL-LLL-LLL
      *
      * @param lat Latitude of the location (between 2.5 and 38.5)
      * @param lon Longitude of the location (between 63.5 and 99.5)
-     * @return A DigiPin string or an empty string if the coordinates are out of bounds.
+     * @return A Digipin string or an empty string if the coordinates are out of bounds.
      */
     fun getDigiPin(lat: Double, lon: Double): String {
         // Grid labels
@@ -92,11 +92,11 @@ object DigiPinUsecase {
     }
 
     /**
-     * Converts a DigiPin to its corresponding latitude and longitude.
-     * The DigiPin must be a 10-character string in the format LLLL-LLL-LLL.
+     * Converts a Digipin to its corresponding latitude and longitude.
+     * The Digipin must be a 10-character string in the format LLLL-LLL-LLL.
      *
-     * @param digiPin The DigiPin string to convert.
-     * @return A pair of latitude and longitude, or (-1.0, -1.0) if the DigiPin is invalid.
+     * @param digiPin The Digipin string to convert.
+     * @return A pair of latitude and longitude, or (-1.0, -1.0) if the Digipin is invalid.
      */
     fun getLatLngByDigipin(digiPin: String): Pair<Double, Double> {
         val pin = digiPin.replace("-", "")

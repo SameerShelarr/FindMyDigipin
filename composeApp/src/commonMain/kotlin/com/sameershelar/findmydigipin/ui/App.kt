@@ -108,8 +108,8 @@ fun App() {
             MapComponent(
                 onMapAction = {
                     when (it) {
-                        is MapActionData.DigiPin -> {
-                            println("Received DigiPin: ${it.digiPin}")
+                        is MapActionData.Digipin -> {
+                            println("Received Digipin: ${it.digiPin}")
                             digiPin = it.digiPin
                         }
                     }
@@ -181,11 +181,11 @@ fun App() {
                     modifier = Modifier.height(4.dp)
                 )
 
-                // DigiPin card and search button
+                // Digipin card and search button
                 Row(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    // Card with DigiPin text
+                    // Card with Digipin text
                     if (digiPin.isNotEmpty()) {
                         Box(
                             modifier = Modifier
@@ -213,7 +213,7 @@ fun App() {
                                 )
                                 Icon(
                                     imageVector = ShareIcon,
-                                    contentDescription = "Share DigiPin",
+                                    contentDescription = "Share Digipin",
                                     tint = Color.Gray,
                                     modifier = Modifier
                                         .size(24.dp)
@@ -230,7 +230,7 @@ fun App() {
                                 )
                                 Icon(
                                     imageVector = Icons.Default.ContentCopy,
-                                    contentDescription = "Copy DigiPin",
+                                    contentDescription = "Copy Digipin",
                                     tint = Color.Gray,
                                     modifier = Modifier
                                         .size(24.dp)
@@ -273,7 +273,7 @@ fun App() {
                                             println("Invalid latitude or longitude for search")
                                         }
                                     } else {
-                                        println("Searching with DigiPin: $digiPinSearch")
+                                        println("Searching with Digipin: $digiPinSearch")
                                         val digiPinToSearch = digiPinSearch
                                         if (digiPinToSearch.isNotEmpty()) {
                                             val (lat, long) = DigiPinUsecase.getLatLngByDigipin(
@@ -282,7 +282,7 @@ fun App() {
                                             if (lat != -1.0 && long != -1.0) {
                                                 onSearchClick?.invoke(lat, long)
                                             } else {
-                                                println("Invalid DigiPin for search")
+                                                println("Invalid Digipin for search")
                                             }
                                         }
                                     }
@@ -318,7 +318,7 @@ fun App() {
                             .padding(8.dp),
                         horizontalArrangement = Arrangement.SpaceEvenly
                     ) {
-                        // Toggle buttons for Lat Long and DigiPin
+                        // Toggle buttons for Lat Long and Digipin
                         Text(
                             text = "Lat Long",
                             modifier = Modifier
@@ -348,7 +348,7 @@ fun App() {
                         )
 
                         Text(
-                            text = "DigiPin",
+                            text = "Digipin",
                             modifier = Modifier
                                 .weight(1f)
                                 .clickable(
@@ -382,7 +382,7 @@ fun App() {
                         verticalAlignment = Alignment.CenterVertically // Align close button with text fields
                     ) {
                         if (isDigiPinSearchMode) {
-                            // DigiPin text field with input restriction and validation
+                            // Digipin text field with input restriction and validation
                             BasicTextField(
                                 value = digiPinSearch,
                                 onValueChange = { input ->
@@ -407,7 +407,7 @@ fun App() {
                                 decorationBox = { innerTextField ->
                                     if (digiPinSearch.isEmpty()) {
                                         Text(
-                                            text = "Enter DigiPin",
+                                            text = "Enter Digipin",
                                             style = MaterialTheme.typography.bodyMedium,
                                         )
                                     }

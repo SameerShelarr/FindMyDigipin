@@ -15,5 +15,5 @@ fun interface MapAction {
 @Serializable
 sealed interface MapActionData {
     @Serializable
-    data class DigiPin(val digiPin: String) : MapActionData
+    data class Digipin(val digiPin: String) : MapActionData
 }

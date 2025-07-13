@@ -25,9 +25,9 @@ struct GoogleMapView: UIViewRepresentable {
             context.coordinator.setMarkerAndAnimateCamera(latitude: Double(truncating: latitude), longitude: Double(truncating: longitude))
         }
 
-        // Listen for DigiPin click event
+        // Listen for Digipin click event
         CommonKt.onShareDigipinClick = { digipin in
-            // Handle share DigiPin click event
+            // Handle share Digipin click event
             let latLong = DigiPinUsecase().getLatLngByDigipin(digiPin: digipin)
             guard let latNumber = latLong.first,
                   let longNumber = latLong.second
@@ -37,7 +37,7 @@ struct GoogleMapView: UIViewRepresentable {
             let latitude = Double(truncating: latNumber)
             let longitude = Double(truncating: longNumber)
 
-            let shareMessage = "DigiPin: \(digipin)\n\nMaps Link: https://www.google.com/maps/search/?api=1&query=\(latitude),\(longitude)"
+            let shareMessage = "Digipin: \(digipin)\n\nMaps Link: https://www.google.com/maps/search/?api=1&query=\(latitude),\(longitude)"
 
             let activityVC = UIActivityViewController(activityItems: [shareMessage], applicationActivities: nil)
             if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
@@ -107,21 +107,21 @@ struct GoogleMapView: UIViewRepresentable {
             manager.stopUpdatingLocation()
 
             let digiPin = DigiPinUsecase().getDigiPin(lat: location.coordinate.latitude, lon: location.coordinate.longitude)
-            let actionData = MapActionDataDigiPin(digiPin: digiPin)
+            let actionData = MapActionDataDigipin(digiPin: digiPin)
             MainViewControllerKt.mapActionCallback(actionData)
         }
 
         func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
             mapView.clear()
             let marker = GMSMarker(position: coordinate)
-            marker.title = "Selected DigiPin Location"
+            marker.title = "Selected Digipin Location"
             marker.snippet = "Lat: \(coordinate.latitude), Lng: \(coordinate.longitude)"
             marker.map = mapView
 
             let digiPin = DigiPinUsecase().getDigiPin(lat: coordinate.latitude, lon: coordinate.longitude)
-            print("DigiPin: \(digiPin)")
+            print("Digipin: \(digiPin)")
 
-            let actionData = MapActionDataDigiPin(digiPin: digiPin)
+            let actionData = MapActionDataDigipin(digiPin: digiPin)
             MainViewControllerKt.mapActionCallback(actionData)
         }
 
@@ -140,14 +140,14 @@ struct GoogleMapView: UIViewRepresentable {
             let cameraUpdate = GMSCameraUpdate.setTarget(searchedCoordinates, zoom: 17.0)
             mapView.animate(with: cameraUpdate)
 
-            // Fetch DigiPin data
+            // Fetch Digipin data
             let digipin = DigiPinUsecase().getDigiPin(
                 lat: searchedCoordinates.latitude,
                 lon: searchedCoordinates.longitude
             )
 
             // Handle map action
-            let actionData = MapActionDataDigiPin(digiPin: digipin)
+            let actionData = MapActionDataDigipin(digiPin: digipin)
             MainViewControllerKt.mapActionCallback(actionData)
         }
     }

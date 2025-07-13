@@ -68,7 +68,7 @@ actual fun MapComponent(
             )
 
             onMapAction.onAction(
-                MapActionData.DigiPin(digipin)
+                MapActionData.Digipin(digipin)
             )
         }
 
@@ -96,7 +96,7 @@ actual fun MapComponent(
                     )
 
                     onMapAction.onAction(
-                        MapActionData.DigiPin(digipin)
+                        MapActionData.Digipin(digipin)
                     )
                 }
             }
@@ -116,7 +116,7 @@ actual fun MapComponent(
             onShareDigipinClick = { digiPin ->
                 val (lat, long) = DigiPinUsecase.getLatLngByDigipin(digiPin)
                 val shareMessage = """
-                    DigiPin: $digiPin
+                    Digipin: $digiPin
                     
                     Maps Link: https://www.google.com/maps/search/?api=1&query=$lat,$long"
                 """.trimIndent()
@@ -125,7 +125,7 @@ actual fun MapComponent(
                     putExtra(Intent.EXTRA_TEXT, shareMessage)
                     type = "text/plain"
                 }
-                context.startActivity(Intent.createChooser(shareIntent, "Share DigiPin via"))
+                context.startActivity(Intent.createChooser(shareIntent, "Share Digipin via"))
             }
 
             onGoToMyLocationClick = {
@@ -159,17 +159,17 @@ actual fun MapComponent(
                     lon = latLng.longitude,
                 )
 
-                println("DigiPin: $digipin")
+                println("Digipin: $digipin")
 
                 onMapAction.onAction(
-                    MapActionData.DigiPin(digipin)
+                    MapActionData.Digipin(digipin)
                 )
             },
         ) {
             marker?.let {
                 Marker(
                     state = MarkerState(position = it),
-                    title = "Selected DigiPin Location",
+                    title = "Selected Digipin Location",
                     snippet = "Lat: ${it.latitude}, Lng: ${it.longitude}",
                 )
             }
