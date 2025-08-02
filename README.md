@@ -39,8 +39,7 @@ Learn more about Digipin: [India Post Digipin Service](https://www.indiapost.gov
 **Watch FindMyDigipin in action!**
 
 See the app running on both Android emulator and iOS simulator, demonstrating all the key features including map interactions, Digipin generation, search functionality, and more.
-
-> 📹 **Demo video will be uploaded here soon** - showing real-time usage on both Android and iOS platforms
+<video src='https://github.com/user-attachments/assets/8658bf1a-4de3-4e3c-b720-3a8ae5f79fd1' />
 
 ## 📱 Platform Support
 
